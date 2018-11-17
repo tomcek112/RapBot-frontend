@@ -1,0 +1,4 @@
+<div class="fe-message-box">
+    <input [(ngModel)]="fieldContent" type="text" placeholder="Message me..."
+           class="fe-message-box__input" (keydown.enter)="sendMessage($event.target.value)">
+</div>

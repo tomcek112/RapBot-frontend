@@ -1,0 +1,21 @@
+.fe-message-box {
+  width: 100%;
+  background-color: white;
+  height: 5vh;
+  display: flex;
+  border-radius: 15px;
+
+  &__input {
+    width: 100%;
+    flex-grow: 1;
+    border-radius: 15px;
+    border: none;
+    padding: 0 2vh;
+    font-size: 1.1em;
+    background-color: #e9ebee;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

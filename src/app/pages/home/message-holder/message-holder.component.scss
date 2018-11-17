@@ -1,0 +1,11 @@
+.fe-message-holder {
+  display: flex;
+  flex-direction: column;
+  padding: 2vh 2.5vw;
+  height: -webkit-fill-available;
+  overflow-y: scroll;
+
+  &__user-message {
+      align-self: flex-end;
+  }
+}
