@@ -1,8 +1,9 @@
-<div class="fe-message" *ngIf="message.content; else emptyResponse">
+<div class="fe-message" *ngIf="message.content; else emptyResponse"
+     [class.fe-message__annotated]="last">
   {{message.content}}
 </div>
 <ng-template #emptyResponse>
-  <div class="fe-message">
+  <div class="fe-message" [class.fe-message__annotated]="last">
     Damn you got me...
   </div>
 </ng-template>

@@ -12,22 +12,34 @@
   &__user-message {
     align-self: flex-end;
     color: white;
+
+    &__annotated::after {
+      content: "You";
+      float: right;
+      margin-top: 5px;
+      margin-right: -15px;
+      position: absolute;
+      font-size: 0.8em;
+      color: #737373;
+    }
+
   }
 
   &__bot-message {
     .fe-message {
       background-color: #e9ebee;
       color: black;
-    }
-  }
 
-  &__annotated::after {
-    content: "You";
-    float: right;
-    margin-top: -25px;
-    margin-right: -15px;
-    font-size: 0.8em;
-    color: #737373;
+      &__annotated::after {
+        content: "Rap Bot";
+        float: left;
+        margin-top: 5px;
+        margin-left: -25px;
+        position: absolute;
+        font-size: 0.8em;
+        color: #737373;
+      }
+    }
   }
 
   &__spacing {
