@@ -1,4 +1,7 @@
-<fe-window>
-  <fe-message-holder></fe-message-holder>
-  <fe-message-box></fe-message-box>
-</fe-window>
+<div class="fe-home" *ngIf="!chatEntered; else chat">
+  <button class="fe-home__button" (click)="enterChat()">Enter Chat</button>
+</div>
+
+<ng-template #chat>
+  <fe-chat></fe-chat>
+</ng-template>

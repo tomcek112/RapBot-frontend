@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  public chatEntered: boolean = false;
+
   constructor() { }
 
   ngOnInit() {
   }
+
+  public enterChat(): void {
+    this.chatEntered = true;
+  }
+
 
 }

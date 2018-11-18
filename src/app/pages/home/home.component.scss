@@ -1,0 +1,33 @@
+@import "../../../variables.scss";
+
+.fe-home {
+  width: 100vw;
+  height: 100vh;
+  background-color: #e9ebee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__button{
+    cursor: pointer;
+    background-color: $fe-blue;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.3em;
+    transition: box-shadow, transform 0.15s ease;
+
+    &:hover {
+      background-color: #7eb3e8;
+      box-shadow: 0px 5px 15px #848484;
+      transform: translateY(-2px) scale(1.01);
+
+      &:focus {
+        background-color: #5885b5;
+        outline: none;
+      }
+    }
+  }
+
+}

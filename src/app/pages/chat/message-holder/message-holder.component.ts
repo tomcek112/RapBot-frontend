@@ -21,7 +21,8 @@ export class MessageHolderComponent implements OnInit {
 
     const messageListener = this.messageService.getSubscribable();
 
-    messageListener.subscribe(m => this.messages = m);
+    messageListener.subscribe(m => m.map(m => this.messages.push(m)));
+    //messageListener.subscribe(m => m.map(m => console.log(m)));
 
   }
 

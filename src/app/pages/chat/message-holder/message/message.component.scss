@@ -1,0 +1,42 @@
+@import "../../../../../variables.scss";
+
+.fe-message {
+  background-color: $fe-blue;
+  padding: 4px 10px;
+  border-radius: 5px;
+  color: white;
+  display: inline-block;
+  font-size: 1.1em;
+  margin-bottom: 5px;
+
+  &__user-message {
+    align-self: flex-end;
+    color: white;
+  }
+
+  &__bot-message {
+    .fe-message {
+      background-color: #e9ebee;
+      color: black;
+    }
+  }
+
+  &__annotated::after {
+    content: "You";
+    float: right;
+    margin-top: -25px;
+    margin-right: -15px;
+    font-size: 0.8em;
+    color: #737373;
+  }
+
+  &__spacing {
+    height: 20px;
+    background-color: transparent;
+  }
+
+  &__anchor {
+    height: 1px;
+  }
+
+}

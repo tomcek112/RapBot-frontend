@@ -3,28 +3,30 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './pages/home/home.component';
-import { WindowComponent } from './pages/home/window/window.component';
-import { MessageBoxComponent } from './pages/home/message-box/message-box.component';
-import { MessageHolderComponent } from './pages/home/message-holder/message-holder.component';
-import { MessageComponent } from './pages/home/message-holder/message/message.component';
+import { ChatComponent } from './pages/chat/chat.component';
+import { WindowComponent } from './pages/chat/window/window.component';
+import { MessageBoxComponent } from './pages/chat/message-box/message-box.component';
+import { MessageHolderComponent } from './pages/chat/message-holder/message-holder.component';
+import { MessageComponent } from './pages/chat/message-holder/message/message.component';
 import {FormsModule} from '@angular/forms';
-import { ScrollAnchorComponent } from './pages/home/message-holder/message/scroll-anchor/scroll-anchor.component';
+import { HomeComponent } from './pages/home/home.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    ChatComponent,
     WindowComponent,
     MessageBoxComponent,
     MessageHolderComponent,
     MessageComponent,
-    ScrollAnchorComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
