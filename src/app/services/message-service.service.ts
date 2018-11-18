@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Message} from '../types/message';
-import {Observable, pipe, ReplaySubject} from 'rxjs';
+import {Observable, of, pipe, ReplaySubject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
+import {catchError, tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,8 @@ export class MessageService {
 
   private _messageEmitter: ReplaySubject<Message[]> = new ReplaySubject();
 
+  private _loading: boolean = false;
+
   constructor(private http: HttpClient) { }
 
   private _emitMessages(contents: string[], comesFromUser: boolean): void {
@@ -23,7 +26,7 @@ export class MessageService {
 
     const messages: Message[] = contents.map(c => {return {"content": c, "comesFromUser": comesFromUser}});
 
-    let baseTimeout = 600;
+    let baseTimeout = 0;
 
     //this is ugly but gets the job done
     messages.map(m => {
@@ -32,7 +35,7 @@ export class MessageService {
           [m]
         );
       }, baseTimeout);
-      baseTimeout = baseTimeout + 600;
+      baseTimeout = baseTimeout + 1000;
     });
   }
 
@@ -41,10 +44,19 @@ export class MessageService {
   }
 
   public postMessage(message: Message): void {
+    this.loading = true;
     this._emitMessages([message.content], true)
     this.http.post(this._baseUrl + "/seed", {"word": message.content}).subscribe(
-      pipe((r) => this._emitMessages(r["results"], false))
+      pipe((r) => {this.loading = false; this._emitMessages(r["results"], false)})
     );
+  }
+
+  public get loading(): boolean {
+    return this._loading;
+  }
+
+  public set loading(value: boolean) {
+    this._loading = value;
   }
 
 }

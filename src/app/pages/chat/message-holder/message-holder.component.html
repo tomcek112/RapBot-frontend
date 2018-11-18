@@ -1,2 +1,2 @@
 <fe-message *ngFor="let message of messages; let last = last" [message]="message" [last]="last"></fe-message>
-
+<fe-message *ngIf="messageService.loading" [message]="{content: 'Lemme think...', comesFromUser: false}"></fe-message>

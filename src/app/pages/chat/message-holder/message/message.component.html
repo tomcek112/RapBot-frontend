@@ -1,5 +1,10 @@
-<div class="fe-message">
+<div class="fe-message" *ngIf="message.content; else emptyResponse">
   {{message.content}}
 </div>
+<ng-template #emptyResponse>
+  <div class="fe-message">
+    Damn you got me...
+  </div>
+</ng-template>
 <div *ngIf="last" class="fe-message__spacing"></div>
 <div class="fe-message__anchor" #anchor></div>

@@ -15,7 +15,7 @@ export class MessageHolderComponent implements OnInit {
 
   public messages: Message[] = [];
 
-  constructor(private messageService: MessageService) { }
+  constructor(public messageService: MessageService) { }
 
   ngOnInit() {
 
