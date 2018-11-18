@@ -46,7 +46,7 @@ export class MessageService {
   public postMessage(message: Message): void {
     this.loading = true;
     this._emitMessages([message.content], true)
-    this.http.post(this._baseUrl + "/seed", {"word": message.content}).subscribe(
+    this.http.post(this._baseUrl + "/seed", {"word": message.content.split(" ").pop()}).subscribe(
       pipe((r) => {this.loading = false; this._emitMessages(r["results"], false)})
     );
   }
